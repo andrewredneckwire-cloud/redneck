@@ -1,0 +1,59 @@
+---
+
+const { post } = Astro.props;
+
+---
+
+{post && (
+
+  <section class="featured">
+
+    <div class="featured-image">
+
+      <img
+        src={post.data.image}
+        alt={post.data.title}
+      />
+
+      <div class="featured-overlay"></div>
+
+      <div class="featured-content">
+
+        <span class="featured-label">
+          Главный материал
+        </span>
+
+        <h2>
+          {post.data.title}
+        </h2>
+
+        <p>
+          {post.data.description}
+        </p>
+
+        <div class="featured-meta">
+
+          <span>
+            {post.data.date.toLocaleDateString("ru-RU")}
+          </span>
+
+          <span>
+            Автор: {post.data.author}
+          </span>
+
+        </div>
+
+        <a
+          href={`/blog/${post.id}`}
+          class="featured-button"
+        >
+          Читать →
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+)}

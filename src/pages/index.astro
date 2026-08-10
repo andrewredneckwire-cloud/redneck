@@ -1,17 +1,141 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import FeaturedArticle from "../components/FeaturedArticle.astro";
 
+import { getCollection } from "astro:content";
+
+const posts = await getCollection("blog");
+
+const featured = posts.find((post) => post.data.featured);
+
+const latestPosts = posts
+    .filter((post) => !post.data.featured)
+    .sort(
+        (a, b) =>
+            b.data.date.valueOf() - a.data.date.valueOf()
+    )
+    .slice(0, 3);
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout
+    title="REDNECK — Независимый авторский журнал"
+    description="Независимый авторский журнал о власти, людях и смыслах."
+>
+
+    <Hero />
+
+    <FeaturedArticle post={featured} />
+
+    <section class="latest">
+
+        <div class="latest-header">
+
+            <h2>Последние публикации</h2>
+
+        </div>
+
+        <div class="latest-grid">
+
+            {latestPosts.map((post) => (
+
+                <a
+                    href={`/blog/${post.id}`}
+                    class="latest-card"
+                >
+
+                    <div class="latest-image">
+
+                        <img
+                            src={post.data.image}
+                            alt={post.data.title}
+                        />
+
+                    </div>
+
+                    <div class="latest-content">
+
+                        <span
+                            class:list={[
+                                "latest-type",
+                                {
+                                    "latest-type-article":
+                                        post.data.type === "СТАТЬЯ"
+                                }
+                            ]}
+                        >
+                            {post.data.type}
+                        </span>
+
+                        <h3>
+                            {post.data.title}
+                        </h3>
+
+                        <div class="latest-meta">
+
+                            <span>
+                                {post.data.date.toLocaleDateString("ru-RU")}
+                            </span>
+
+                            <span>
+                                {post.data.readingTime}
+                            </span>
+
+                        </div>
+
+                        <p>
+                            {post.data.description}
+                        </p>
+
+                    </div>
+
+                </a>
+
+            ))}
+
+        </div>
+
+    </section>
+
+    <section class="about-author">
+
+        <div class="about-author-content">
+
+            <span class="about-author-label">
+                Об авторе
+            </span>
+
+            <h2>
+                REDNECK — независимый авторский журнал
+            </h2>
+
+            <p>
+                Здесь публикуются материалы о власти, людях и смыслах.
+                О местной политике, городской жизни и событиях,
+                которые заслуживают внимания.
+            </p>
+
+            <div class="about-author-name">
+
+                <strong>
+                    Андрей Тельтевской
+                </strong>
+
+                <span>
+                    журналист, публицист
+                </span>
+
+            </div>
+
+            <a
+                href="/about"
+                class="button"
+            >
+                Подробнее →
+            </a>
+
+        </div>
+
+    </section>
+
+</BaseLayout>

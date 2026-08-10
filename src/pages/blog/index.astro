@@ -1,0 +1,79 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+const posts = await getCollection("blog");
+
+const latestPosts = posts.sort(
+    (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+---
+
+<BaseLayout
+    title="Все статьи — REDNECK"
+    description="Все публикации REDNECK — независимого авторского журнала."
+>
+
+    <section class="latest">
+
+        <div class="latest-header">
+
+            <h2>Все статьи</h2>
+
+        </div>
+
+        <div class="latest-grid">
+
+            {latestPosts.map((post) => (
+
+                <a
+                    href={`/blog/${post.id}`}
+                    class="latest-card"
+                >
+
+                    <div class="latest-image">
+
+                        <img
+                            src={post.data.image}
+                            alt={post.data.title}
+                        />
+
+                    </div>
+
+                    <div class="latest-content">
+
+                        <span class="latest-type">
+                            {post.data.type}
+                        </span>
+
+                        <h3>
+                            {post.data.title}
+                        </h3>
+
+                        <div class="latest-meta">
+
+                            <span>
+                                {post.data.date.toLocaleDateString("ru-RU")}
+                            </span>
+
+                            <span>
+                                {post.data.readingTime}
+                            </span>
+
+                        </div>
+
+                        <p>
+                            {post.data.description}
+                        </p>
+
+                    </div>
+
+                </a>
+
+            ))}
+
+        </div>
+
+    </section>
+
+</BaseLayout>

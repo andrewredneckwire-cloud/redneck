@@ -1,0 +1,82 @@
+---
+import { getCollection, render } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ShareBar from "../../components/ShareBar.astro";
+
+export async function getStaticPaths() {
+    const posts = await getCollection("blog");
+
+    return posts.map((post) => ({
+        params: { slug: post.id },
+        props: { post },
+    }));
+}
+
+const { post } = Astro.props;
+
+const { Content } = await render(post);
+---
+
+<BaseLayout
+    title={`${post.data.title} — REDNECK`}
+    description={post.data.description}
+>
+
+    <article class="article">
+
+        <header class="article-header">
+
+            <div class="article-meta">
+
+                <span class="article-date">
+                    {post.data.date.toLocaleDateString("ru-RU")}
+                </span>
+
+                <span class="article-author">
+                    Автор: {post.data.author}
+                </span>
+
+            </div>
+
+            <h1>
+                {post.data.title}
+            </h1>
+
+            <p class="article-description">
+                {post.data.description}
+            </p>
+
+        </header>
+
+
+        <div class="article-cover-wrapper">
+
+            <img
+                class="article-cover"
+                src={post.data.image}
+                alt={post.data.title}
+            />
+
+        </div>
+
+
+        <div class="article-body">
+
+            <Content />
+
+        </div>
+
+
+        <ShareBar
+            title={post.data.title}
+            description={post.data.description}
+        />
+
+
+        <a href="/blog" class="back-link">
+            ← Все статьи
+        </a>
+
+    </article>
+
+</BaseLayout>
