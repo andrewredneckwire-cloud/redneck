@@ -1717,7 +1717,7 @@ main {
                 rgba(15, 15, 16, .78) 50%,
                 rgba(15, 15, 16, .35) 100%
             ),
-            url("/images/about-author.jpg") center / cover no-repeat;
+            url("/images/about-author.png") 75% center / cover no-repeat;
     }
 
 
@@ -1731,5 +1731,60 @@ main {
         flex-direction: row;
         align-items: center;
         gap: 22px;
+    }
+}
+
+/* Иконки футера */
+.footer-icon {
+    display: none;
+}
+
+/* МОБИЛЬНАЯ ВЕРСИЯ ФУТЕРА */
+@media (max-width: 900px) {
+
+    .footer-links {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 32px;
+    }
+
+    .footer-links a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .footer-links span {
+        display: none;
+    }
+
+    .footer-icon {
+        display: block;
+        width: 34px;
+        height: 34px;
+        color: #f2f2f2;
+    }
+
+    .footer-icon path,
+    .footer-icon rect {
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 1.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+
+    /* Telegram */
+    .footer-links a:first-child .footer-icon path {
+        fill: currentColor;
+        stroke: none;
+    }
+
+    /* Linktree */
+    .footer-links a:last-child .footer-icon {
+        fill: currentColor;
+        stroke: none;
     }
 }
