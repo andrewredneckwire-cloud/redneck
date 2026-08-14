@@ -13,7 +13,7 @@ readingTime: "5 мин"
 
 image: "/images/dialog-po-ustyugski.png"
 
-featured: true
+featured: false
 
 ---
 
