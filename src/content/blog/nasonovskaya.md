@@ -14,7 +14,7 @@ readingTime: "10 мин"
 
 image: "/images/articles/nasonovskaya_ill.png"
 
-featured: true
+featured: false
 
 ---
 
