@@ -3,7 +3,7 @@ author: Андрей Тельтевской
 date: 2026-08-17
 description: Как государственная культурная политика превращает забытых
   артистов и писателей в бюджетных исполнителей.
-featured: true
+featured: false
 image: /images/articles/illustration.png
 readingTime: 12 мин
 title: "КУЛЬТУРА НА ПОДСОСЕ: КАК ЗАБЫТЫЕ АРТИСТЫ ОСВОИЛИ БЮДЖЕТ"
