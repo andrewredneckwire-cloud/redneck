@@ -44,12 +44,13 @@ const latestPosts = posts.sort(
 
                         <span
                          class:list={[
-                         "latest-type",
-                          post.data.type === "СТАТЬЯ" && "latest-type-article"
+                          "latest-type",
+                         post.data.type === "СТАТЬЯ" && "latest-type-article",
+                          post.data.type === "РАССКАЗ" && "latest-type-story"
                          ]}
                          >
                          {post.data.type}
-                        </span>
+                         </span>
 
                         <h3>
                             {post.data.title}

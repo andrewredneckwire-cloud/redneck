@@ -2058,3 +2058,62 @@ body:has(.article) .footer {
 .article-image figcaption br {
     display: block;
 }
+/* РАССКАЗ — зелёный тип */
+.latest-type-story {
+    color: #4ade80;
+}
+
+/* =========================================================
+   ДИСКЛЕЙМЕРЫ — РАССКАЗЫ
+   ========================================================= */
+
+.article-body .article-disclaimer {
+    margin: 48px 0;
+    padding: 30px 34px;
+    background: #eeeeec;
+    border: 1px solid #d5d5d2;
+    border-left: 5px solid #4ade80;
+    box-sizing: border-box;
+}
+
+.article-body .article-disclaimer strong {
+    display: block;
+    margin-bottom: 16px;
+    font-size: 15px;
+    line-height: 1.2;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.article-body .article-disclaimer p {
+    margin: 0 0 18px;
+    font-size: 17px;
+    line-height: 1.65;
+}
+
+.article-body .article-disclaimer p:last-child {
+    margin-bottom: 0;
+}
+
+.article-body .article-disclaimer-final {
+    margin-top: 64px;
+}
+
+@media (max-width: 900px) {
+
+    .article-body .article-disclaimer {
+        margin: 36px 0;
+        padding: 24px 22px;
+    }
+
+    .article-body .article-disclaimer p {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    .article-body .article-disclaimer-final {
+        margin-top: 48px;
+    }
+
+}
