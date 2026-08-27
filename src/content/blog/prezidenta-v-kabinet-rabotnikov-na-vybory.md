@@ -13,7 +13,7 @@ readingTime: "10 мин"
 
 image: "/images/articles/prezidentavkabinet.png"
 
-featured: true
+featured: false
 ---
 <div class="article-disclaimer">
     <strong>ДИСКЛЕЙМЕР</strong>

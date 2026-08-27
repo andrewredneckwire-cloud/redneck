@@ -56,15 +56,18 @@ const latestPosts = posts
                     <div class="latest-content">
 
                         <span
-                            class:list={[
-                                "latest-type",
-                                {
-                                    "latest-type-article":
-                                        post.data.type === "СТАТЬЯ"
-                                }
-                            ]}
-                        >
-                            {post.data.type}
+                         class:list={[
+                         "latest-type",
+                         {
+                         "latest-type-article":
+                         post.data.type === "СТАТЬЯ",
+
+                         "latest-type-story":
+                          post.data.type === "РАССКАЗ"
+                          }
+                         ]}
+                         >
+                         {post.data.type}
                         </span>
 
                         <h3>
