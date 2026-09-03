@@ -7,10 +7,15 @@ import { getCollection } from "astro:content";
 
 const posts = await getCollection("blog");
 
-const featured = posts.find((post) => post.data.featured);
+const featured = posts
+    .filter((post) => post.data.featured)
+    .sort(
+        (a, b) =>
+            b.data.date.valueOf() - a.data.date.valueOf()
+    )[0];
 
 const latestPosts = posts
-    .filter((post) => !post.data.featured)
+    .filter((post) => post !== featured)
     .sort(
         (a, b) =>
             b.data.date.valueOf() - a.data.date.valueOf()
@@ -56,18 +61,18 @@ const latestPosts = posts
                     <div class="latest-content">
 
                         <span
-                         class:list={[
-                         "latest-type",
-                         {
-                         "latest-type-article":
-                         post.data.type === "СТАТЬЯ",
+                            class:list={[
+                                "latest-type",
+                                {
+                                    "latest-type-article":
+                                        post.data.type === "СТАТЬЯ",
 
-                         "latest-type-story":
-                          post.data.type === "РАССКАЗ"
-                          }
-                         ]}
-                         >
-                         {post.data.type}
+                                    "latest-type-story":
+                                        post.data.type === "РАССКАЗ"
+                                }
+                            ]}
+                        >
+                            {post.data.type}
                         </span>
 
                         <h3>

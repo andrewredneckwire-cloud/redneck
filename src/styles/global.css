@@ -2075,11 +2075,40 @@ body:has(.article) .footer {
     margin: 0;
 }
 
+.article-image-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    width: 100%;
+    max-width: 900px;
+    margin: 42px auto;
+    align-items: start;
+}
+
+.article-image-grid .article-image {
+    width: 100%;
+    margin: 0;
+}
+
 .article-image-grid .article-image img {
     width: 100%;
-    height: auto;
-    max-height: 500px;
-    object-fit: contain;
+    height: 420px;
+    object-fit: cover;
+    display: block;
+}
+
+.article-image-grid .article-image figcaption {
+    margin-top: 10px;
+}
+
+@media (max-width: 900px) {
+
+    .article-image-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        margin: 36px auto;
+    }
+
 }
 
 @media (max-width: 900px) {
