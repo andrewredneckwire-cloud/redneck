@@ -14,7 +14,7 @@ readingTime: "12 мин"
 
 image: "/images/articles/kakneperesvetitgorod.png"
 
-featured: true
+featured: false
 
 ---
 

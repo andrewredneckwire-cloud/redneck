@@ -528,6 +528,9 @@ main {
 .latest-type-article {
     color: var(--article-accent);
 }
+.latest-type-opinion {
+    color: #3b82f6;
+}
 
 
 /* ---------- Заголовок ---------- */
@@ -1020,6 +1023,13 @@ main {
     color: #000;
 }
 
+.article-body ul {
+    padding-left: 55px;
+}
+
+.article-body li {
+    padding-left: 4px;
+}
 
 /* ССЫЛКИ */
 
@@ -1126,6 +1136,14 @@ main {
         font-size: 1.05rem;
         line-height: 1.8;
     }
+
+    .article-body ul {
+    padding-left: 30px;
+}
+
+.article-body li {
+    padding-left: 4px;
+}
 
     .article-body h2 {
         color: #111;

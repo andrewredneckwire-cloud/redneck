@@ -13,7 +13,7 @@ readingTime: "10 мин"
 
 image: "/images/articles/prazdniknastroyke.jpg"
 
-featured: true
+featured: false
 
 ---
 

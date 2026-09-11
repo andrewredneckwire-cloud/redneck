@@ -46,6 +46,7 @@ const latestPosts = posts.sort(
                          class:list={[
                           "latest-type",
                          post.data.type === "СТАТЬЯ" && "latest-type-article",
+                         post.data.type === "МНЕНИЕ" && "latest-type-opinion",
                           post.data.type === "РАССКАЗ" && "latest-type-story"
                          ]}
                          >
