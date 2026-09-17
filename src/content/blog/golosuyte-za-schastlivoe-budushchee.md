@@ -13,7 +13,7 @@ readingTime: "8 мин"
 
 image: "/images/articles/golosuy.png"
 
-featured: true
+featured: false
 
 ---
 
